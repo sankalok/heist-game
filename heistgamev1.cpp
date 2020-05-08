@@ -4,7 +4,7 @@
 using namespace std;
 int main()
 {
-  string team[6] = {"Tokyo", "Berlin", "Moscow", "Nairobi", "Stockholm", "Denver", "Lisbon"};
+  string team[7] = {"Tokyo", "Berlin", "Moscow", "Nairobi", "Stockholm", "Denver", "Lisbon"};
   cout<<"####################################"<<endl;
   cout<<"Welcome to the royal mint of Spain "<<endl;
   cout<<"You and your team have to perform "<<endl;
