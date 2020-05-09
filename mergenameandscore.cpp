@@ -11,8 +11,6 @@ void mergeNameAndScore()
 	ifstream fin;
 	ifstream fin2;
 	ifstream fin3;
-	ifstream fin4;
-	ifstream fin5;
 	fout.open("highscores.txt");
 	fin.open("userName.txt");
 	fin2.open("userName.txt");
