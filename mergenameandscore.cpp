@@ -34,6 +34,7 @@ void mergeNameAndScore()
 	{
 		count+=1;
 	}
+	//memory allocation
 	//dynamic arrays for sorting names and scores in descending order
 	string *nameArray=new string[count];
 	long long *scoreArray=new long long[count];
@@ -74,5 +75,8 @@ void mergeNameAndScore()
 	fin2.close();
 	fin3.close();
 	fout.close();
+	//memory deallocation
+	delete [] nameArray;
+	delete [] scoreArray;
 	//end of the function after closing all the fstreams
 }
