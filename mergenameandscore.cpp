@@ -15,18 +15,6 @@ void mergeNameAndScore()
 	fin.open("userName.txt");
 	fin2.open("userName.txt");
 	fin3.open("userScore.txt");
-	if(fin.fail())
-	{
-		cout<<"Error in opening File."<<endl;
-	}
-	if(fin2.fail())
-	{
-		cout<<"Error in opening File."<<endl;
-	}
-	if(fin3.fail())
-	{
-		cout<<"Error in opening File."<<endl;
-	}
 	long long count=0;
 	string name;
 	long long score=0;

@@ -19,14 +19,6 @@ void printHighScores()	//Player's userName and userScore
 	{
 		count+=1;
 	}
-	if(fin.fail())
-	{
-		cout<<"Error in opening File."<<endl;
-	}
-	if(fin2.fail())
-	{
-		cout<<"Error in opening File."<<endl;
-	}
 	int i=1;	//counter
 	cout<<setfill('*')<<setw(47)<<""<<endl;
 	cout<<"******************HIGH SCORES******************"<<endl;
@@ -49,7 +41,7 @@ void printHighScores()	//Player's userName and userScore
     		cout<<setfill('0')<<setw(3)<<i<<setfill(' ')<<setw(24)<<name<<setfill(' ')<<setw(20)<<score<<endl;
 			i+=1;
 		}
-		for(i=count; i<=10; i++)
+		for(i=count+1; i<=10; i++)
 		{
 			cout<<setfill('0')<<setw(3)<<i<<setfill(' ')<<setw(24)<<"---"<<setfill(' ')<<setw(20)<<0<<endl;
 		}
