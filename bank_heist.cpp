@@ -373,10 +373,6 @@ int main()//main function
   ofstream fout2;
   //opening and appending userScore.txt
   fout2.open("userScore.txt", ios::app);
-  if(fout2.fail())
-  {
-	  cout<<"Error in opening File."<<endl;
-  }
   fout2<<money<<endl;
   fout2.close();
   //calling mergeNameAndScore() to merge the scores and usernames into a single file
