@@ -12,5 +12,5 @@ bank_heist.o: bank_heist.cpp registration.h mergenameandscore.h highscores.h
 bank_heist: registration.o mergenameandscore.o highscores.o bank_heist.o
 	g++ $(FLAGS) registration.o mergenameandscore.o highscores.o bank_heist.o -o bank_heist
 clean:
-	rm -f registratio.o mergenameandscore.o highscores.o bank_heist.o bank_heist
+	rm -f registration.o mergenameandscore.o highscores.o bank_heist.o bank_heist
 .PHONY: clean
