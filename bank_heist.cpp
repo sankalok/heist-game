@@ -1,7 +1,12 @@
+//bank_heist.cpp
 #include <iostream>
 #include <string>
 #include <stdlib.h>
 #include <time.h>
+#include <fstream>
+#include <iomanip>
+#include "mergenameandscore.h"
+#include "highscores.h"
 using namespace std;
 
 struct day{//struct for each day
@@ -9,10 +14,10 @@ struct day{//struct for each day
   int loot;
   int risk;
   day * next;
-  
+
 };
 
-void addday(day * head, int m, int l,int r)// function to add a day 
+void addday(day * head, int m, int l,int r)// function to add a day
 {
   day * p = new day;
   p->members = m;
@@ -55,11 +60,48 @@ int main()//main function
   cout<<"██║╚██╔╝██║██║░░██║██║╚████║██╔══╝░░░░╚██╔╝░░  ██╔══██║██╔══╝░░██║░╚═══██╗░░░██║░░░"<<endl;
   cout<<"██║░╚═╝░██║╚█████╔╝██║░╚███║███████╗░░░██║░░░  ██║░░██║███████╗██║██████╔╝░░░██║░░░"<<endl;
   cout<<"╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚══╝╚══════╝░░░╚═╝░░░  ╚═╝░░╚═╝╚══════╝╚═╝╚═════╝░░░░╚═╝░░░"<<endl;
+  cout<<endl;
+  //using a Guy Fawkes mask
+  cout<<"███████████████████████████████"<<endl;
+  cout<<"████╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬████"<<endl;
+  cout<<"██╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬██"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬███████╬╬╬╬╬╬╬╬╬███████╬╬╬█"<<endl;
+  cout<<"█╬╬██╬╬╬╬███╬╬╬╬╬╬╬███╬╬╬╬██╬╬█"<<endl;
+  cout<<"█╬██╬╬╬╬╬╬╬██╬╬╬╬╬██╬╬╬╬╬╬╬██╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬█████╬╬╬╬╬╬╬╬╬╬╬█████╬╬╬╬█"<<endl;
+  cout<<"█╬╬█████████╬╬╬╬╬╬╬█████████╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█╬╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬▓▓▓▓▓▓╬╬█╬╬╬█╬╬╬█╬╬▓▓▓▓▓▓╬╬█"<<endl;
+  cout<<"█╬╬╬▓▓▓▓╬╬╬╬╬╬╬█╬╬╬╬╬╬╬▓▓▓▓╬╬╬█"<<endl;
+  cout<<"█╬╬╬▓▓▓▓╬╬██╬╬╬█╬╬╬██╬╬▓▓▓▓╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬██╬╬╬╬█╬╬╬╬██╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬████╬╬╬╬███╬╬╬╬████╬╬╬╬╬█"<<endl;
+  cout<<"█╬╬╬╬╬╬╬╬╬╬╬╬╬███╬╬╬╬╬╬╬╬╬╬╬╬╬█"<<endl;
+  cout<<"██╬╬█╬╬╬╬╬╬╬╬█████╬╬╬╬╬╬╬╬█╬╬██"<<endl;
+  cout<<"██╬╬██╬╬╬╬╬╬███████╬╬╬╬╬╬██╬╬██"<<endl;
+  cout<<"██╬╬▓███╬╬╬████╬████╬╬╬███▓╬╬██"<<endl;
+  cout<<"███╬╬▓▓███████╬╬╬███████▓▓╬╬███"<<endl;
+  cout<<"███╬╬╬╬▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓╬╬╬╬███"<<endl;
+  cout<<"████╬╬╬╬╬╬╬╬╬╬███╬╬╬╬╬╬╬╬╬╬████"<<endl;
+  cout<<"██████╬╬╬╬╬╬╬╬███╬╬╬╬╬╬╬╬██████"<<endl;
+  cout<<"█████╬╬╬╬╬╬╬╬╬╬█╬╬╬╬╬╬╬╬╬╬█████"<<endl;
+  cout<<"███████╬╬╬╬╬╬╬███╬╬╬╬╬╬╬███████"<<endl;
+  cout<<"████████╬╬╬╬╬╬███╬╬╬╬╬╬████████"<<endl;
+  cout<<"█████████╬╬╬╬╬███╬╬╬╬╬█████████"<<endl;
+  cout<<"███████████╬╬╬╬█╬╬╬╬███████████"<<endl;
+  cout<<"███████████████████████████████"<<endl;
+  cout<<endl;
   int randmoney=0;
   int vaultopen = 0, vaultdate=0;
   int hackopen = 0, hackdate=0;
   int input, inp;
-  int money=0, r=0,mos=0;
+  long long money=0;
+  int r=0,mos=0;
   int d=1;
   int leave=1;
   int mem = 7;
@@ -69,7 +111,7 @@ int main()//main function
   srand(time(NULL));//srand with time so that it is random every time
   day * head = NULL;
   day * first = new day;
-  first->members = 7;//firdt node
+  first->members = 7;//first node
   first->loot = 0;
   first->risk = 0;
   first->next = head;
@@ -81,6 +123,37 @@ int main()//main function
   cout<<"##### The perfect heist. You have to steal ####"<<endl;
   cout<<"##### The maximum amount of money while    ####"<<endl;
   cout<<"##### Sarificing the least no. of players  ####"<<endl;
+  cout<<"###############################################"<<endl;
+  cout<<endl;
+  cout<<"Enter Username (Should Not be Greater Than 20 Characters): ";
+  string userName;
+  cin>>userName;	//inputs the username
+  int var;
+  string in;
+  ofstream fout;
+  ifstream fin;
+  fout.open("userName.txt", ios::app);
+  fin.open("userName.txt");
+  if(fout.fail())
+  {
+	  cout<<"Error in opening File."<<endl;
+  }
+  if(fin.fail())
+  {
+	  cout<<"Error in opening File."<<endl;
+  }
+  while(fin>>in)	//checks if username already exists or not
+  {
+	  if(in==userName)
+	  {
+		  cout<<"Username already exists. Restart Again."<<endl;
+		  return 0;
+	  }
+  }
+  fout<<userName<<endl;	//if its a unique username then we add the username to the .txt file
+  fin.close();
+  fout.close();
+  cout<<endl;
   cout<<"###############################################"<<endl;
   string op1 = "1. Print Money +";
   string op3 = "3. Open the Vault +";
@@ -100,7 +173,7 @@ int main()//main function
     if(findmember(team, "Rio", 7) && hackopen==0)//If Rio is available and Safe is not already open
     {
       cout<<op2<<hackmoney<<"$"<<" (Will take "<<5-hackdate<<" more days)"<<endl;
-    }  
+    }
     else if(hackopen==1)
     {
       cout<<"2. Safe is already opened"<<endl;
@@ -120,17 +193,17 @@ int main()//main function
     randmoney=(rand()%10+1)*10000;
     cout<<"4. Forex money availabe is +"<<randmoney<<"$"<<endl;
     cin>>input;
-    if(input==1)//updating money 
+    if(input==1)//updating money
     {
       money += printmoney;
     }
-    else if(input==2 && findmember(team, "Rio", 7) && hackopen==0)//to add hack money to the total sum 
+    else if(input==2 && findmember(team, "Rio", 7) && hackopen==0)//to add hack money to the total sum
     {
       hackdate++;
       if(hackdate==5)
       {
         hackopen=1;
-        money += hackmoney; 
+        money += hackmoney;
       }
     }
     else if(input==2 && hackopen==1)
@@ -208,7 +281,7 @@ int main()//main function
     }
     if(mem>1)//if members are more than 1
     {
-      cout<<"6. Sacrifice a player "<<mem<<" available"<<endl;  
+      cout<<"6. Sacrifice a player "<<mem<<" available"<<endl;
     }
     else
     {
@@ -297,6 +370,29 @@ int main()//main function
   money += d*1000;
   cout<<"You stayed for "<<d<<" days"<<endl;//displays no. of days user was in
   cout<<"You looted "<<money<<"$"<<endl;// displays total money looted
-  return 0; 
+  ofstream fout2;
+  //opening and appending userScore.txt
+  fout2.open("userScore.txt", ios::app);
+  if(fout2.fail())
+  {
+	  cout<<"Error in opening File."<<endl;
+  }
+  fout2<<money<<endl;
+  fout2.close();
+  //calling mergeNameAndScore() to merge the scores and usernames into a single file
+  mergeNameAndScore();
+  //calling printHighScores() to print the top 10 printHighScores
+  printHighScores();
+  cout<<"USERNAME: "<<userName<<endl;	//prints the userName and userScore
+  cout<<"USER SCORE: "<<money<<endl;
+  cout<<setfill('*')<<setw(47)<<""<<endl;	//using setw from <iomanip> to print in proper format
+  cout<<"*****YOU HAVE REACHED THE END OF THE HEIST*****"<<endl;
+  cout<<setfill('*')<<setw(47)<<""<<endl;
+  cout<<"░█████╗░██╗░█████╗░░█████╗░"<<endl;
+  cout<<"██╔══██╗██║██╔══██╗██╔══██╗"<<endl;
+  cout<<"██║░░╚═╝██║███████║██║░░██║"<<endl;
+  cout<<"██║░░██╗██║██╔══██║██║░░██║"<<endl;
+  cout<<"╚█████╔╝██║██║░░██║╚█████╔╝"<<endl;
+  cout<<"░╚════╝░╚═╝╚═╝░░╚═╝░╚════╝░"<<endl;
+  return 0;
 }
-
